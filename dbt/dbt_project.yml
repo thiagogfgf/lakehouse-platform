@@ -1,0 +1,30 @@
+name: 'lakehouse_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'lakehouse'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  lakehouse_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+      +location_root: 's3a://lakehouse/staging'
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+      +location_root: 's3a://lakehouse/intermediate'
+    marts:
+      +materialized: table
+      +schema: marts
+      +location_root: 's3a://lakehouse/marts'
+
+vars:
+  min_fare_amount: 0
+  max_fare_amount: 1000
+  min_passenger_count: 1
+  max_passenger_count: 6

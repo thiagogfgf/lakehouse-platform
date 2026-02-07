@@ -1,0 +1,78 @@
+# Environment & Secrets
+.env
+*.env.local
+secrets/
+credentials/
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/dbt_modules/
+
+# Airflow
+airflow/logs/
+airflow/airflow.db
+airflow/airflow-webserver.pid
+airflow/standalone_admin_password.txt
+airflow/webserver_config.py
+
+# Data (não commitar dados!)
+data/
+*.parquet
+*.csv
+*.xlsx
+*.json
+!examples/**/*.json
+!dbt/**/*.json
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Temp
+tmp/
+temp/
+*.tmp
+
+# Archives
+docs/archive/

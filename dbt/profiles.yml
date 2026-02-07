@@ -1,0 +1,13 @@
+lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: trino
+      method: none
+      user: admin
+      host: trino-coordinator
+      port: 8080
+      database: iceberg
+      schema: marts
+      threads: 4
+      http_scheme: http

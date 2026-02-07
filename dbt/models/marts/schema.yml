@@ -1,0 +1,20 @@
+# Marts Schema - CUSTOMIZE AQUI
+#
+# TODO:
+# 1. Documente seus modelos marts
+# 2. Adicione testes de qualidade
+# 3. Defina relacionamentos entre tabelas
+#
+# Exemplo completo em: examples/dbt_models/
+
+version: 2
+
+models:
+  - name: fct_example
+    description: "Tabela de fatos - exemplo"
+    columns:
+      - name: date_key
+        description: "Data no formato YYYYMMDD"
+        tests:
+          - not_null
+      # TODO: Adicione suas colunas

@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install black flake8
+      
+      - name: Run Black
+        run: black --check scripts/ airflow/ || true
+      
+      - name: Run Flake8
+        run: flake8 scripts/ airflow/ --max-line-length=88 || true
+
+  test-docker:
+    name: Test Docker Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build Airflow Image
+        run: cd airflow && docker build -t lakehouse-airflow:test .

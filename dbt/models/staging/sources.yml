@@ -1,0 +1,25 @@
+# Sources Configuration - CUSTOMIZE AQUI
+#
+# TODO:
+# 1. Configure suas sources (tabelas raw)
+# 2. Adicione testes de qualidade
+# 3. Documente colunas importantes
+#
+# Exemplo completo em: examples/dbt_models/sources.yml
+
+version: 2
+
+sources:
+  - name: raw
+    database: hive
+    schema: raw
+    tables:
+      - name: my_table  # TODO: Nome da sua tabela raw
+        description: "Descrição dos dados brutos"
+        columns:
+          - name: id
+            description: "Identificador único"
+            tests:
+              - not_null
+              - unique
+          # TODO: Adicione suas colunas aqui
